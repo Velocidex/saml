@@ -764,9 +764,9 @@ func (a *Assertion) Element() *etree.Element {
 	for _, attributeStatement := range a.AttributeStatements {
 		el.AddChild(attributeStatement.Element())
 	}
-	err := etreeutils.TransformExcC14n(el, canonicalizerPrefixList)
+	err := etreeutils.TransformExcC14n(el, canonicalizerPrefixList, false)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 	return el
 }
